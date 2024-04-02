@@ -1,0 +1,679 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Oferta de Adquisición</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="e6882a2a-0830-437d-b450-7bcb1c9d6ed7" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="https://www.notion.so/icons/cash_blue.svg"/></div><h1 class="page-title"><mark class="highlight-pink">Oferta de Adquisición</mark></h1><p class="page-description"></p></header><div class="page-body"><figure id="3a7ee5c1-f1e0-4b39-9083-bce9c6642148" class="image"><a href="Oferta%20de%20Adquisicio%CC%81n%20e6882a2a0830437db4507bcb1c9d6ed7/Captura_de_pantalla_2024-03-25_a_la(s)_7.00.12_p._m..png"><img style="width:708px" src="Oferta%20de%20Adquisicio%CC%81n%20e6882a2a0830437db4507bcb1c9d6ed7/Captura_de_pantalla_2024-03-25_a_la(s)_7.00.12_p._m..png"/></a></figure><h2 id="200b5077-890a-4973-a2e8-1326085e64b0" class="block-color-blue">¿Cuál es la oferta de adquisición ganadora?</h2><ul id="b8e8b007-7db3-4e6c-9ba2-b3d1dbbf9c3f" class="bulleted-list"><li style="list-style-type:disc"><strong>Oferta de adquisición ganadora:</strong> La Oferta de Adquisición es el primer artículo de la marca que vamos a invitar a comprar a las personas que no conocen la marca (una audiencia fría)</li></ul><div id="9afc22a8-61e1-4e1b-92ee-f538a2bb2389" class="column-list"><div id="b9bdb997-e4fa-437f-9665-3ac00e090dae" style="width:50%" class="column"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="4d7bc65f-0ad6-4da1-ad16-42208dfe340c"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">La oferta de adquisición es atemporal y funcionan 24/7 por eso decimos que: Oferta de Adquisición ≠ Oferta de Black Friday o similares  Es decir que la oferta de adquisición funciona en cualquier día, cualquier hora.</div></figure><p id="40595e73-b91b-441d-8c24-46e5d0aa5f75" class="">
+</p><p id="d5434c73-82f5-499e-a954-94550db04b67" class="">
+</p></div><div id="cf425890-1aec-42cf-b2c6-f50f70ef94d0" style="width:50%" class="column"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="03605165-de1b-4c9c-b0d2-9983d4b46cc3"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Para saber cuánto exactamente podemos gastar para adquirir a un nuevo cliente, tenemos que reducir toda la complejidad y mandar todo el trafico de una audiencia fría vaya a una sola oferta. Así sabemos cuál es el beneficio de la compra y cuál es el costo de adquisición. (Saber esto te pone por delante de tus competidores, además si no sabes el retorno de la inversión no eres un negocio. Meter 1$ y no saber si vas a sacar 2$, 3$ o 5$ es señal de que no eres un negocio)</div></figure></div></div><ul id="dc4b4ce9-71fe-4b2c-a341-7a848139810f" class="bulleted-list"><li style="list-style-type:disc"><strong>Introducirles en la marca:</strong> a través de esta Oferta de Adquisición, se les introducirá dentro de la marca. Una vez que estén en el ecosistema, se les podrán vender otros productos.</li></ul><h2 id="d493479b-2683-40be-b542-fe1fbe9b5419" class="block-color-blue">La importancia de la oferta de adquisición</h2><ul id="975ddb7a-4ec8-4d06-9e30-d564af169e72" class="bulleted-list"><li style="list-style-type:disc"><strong>La gente está siendo bombardeada</strong> constantemente con opciones y cosas para comprar. Nuestra estrategia de Adquisición NO se basará en utilizar la Oferta de Adquisición en nuestros anuncios o embudo como verás adelante, sino que una vez que estén en el embudo al que han entrado a base de una Oferta de Contenido de Alto Valor, tendrán que tomar una decisión de compra. Con muchas opciones disponibles, la oferta de adquisición que se le presenta tiene que ser muy potente.</li></ul><ul id="e25779a4-e5ab-4668-b8e7-512d1df5dc3e" class="bulleted-list"><li style="list-style-type:disc"><strong>Rentabilidad:</strong> determina si todo el proceso de venta será rentable o no. Hablaremos de esto en profundidad más adelante, pero cuanto más podamos gastar para adquirir un cliente, mejor, ya que podremos gastar más que nuestros competidores. La única forma de conseguirlo es que la oferta esté pensada desde un punto de vista financiero desde el principio.</li></ul><ul id="11165e03-bee8-4069-8fda-42f92e18b53e" class="bulleted-list"><li style="list-style-type:disc"><strong>Determina el embudo:</strong> más adelante, verás cómo dependiendo de la oferta de adquisición que selecciones, determinará el embudo que elijas de entre las opciones por las que te iré guiando. El precio de la oferta de adquisición determina la longitud del embudo. Cuanto más cara sea la oferta, más largo será el embudo.</li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="9dc65e70-e7cc-4e4d-a011-96b46556492b"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Si el comprador toma una decisión de compra no basada en precio, sino que basada en valor, puedo aumentar el precio de tu producto</div></figure><h2 id="1b9b6c79-775e-4b7e-8e1e-340e15758a52" class="block-color-blue">Por qué la mayoría de las marcas meten la pata</h2><figure id="63bb9c8f-e6db-4a13-a2c6-623f297731ab" class="image"><a href="Oferta%20de%20Adquisicio%CC%81n%20e6882a2a0830437db4507bcb1c9d6ed7/Captura_de_pantalla_2024-03-26_a_la(s)_10.59.56_a._m..png"><img style="width:708px" src="Oferta%20de%20Adquisicio%CC%81n%20e6882a2a0830437db4507bcb1c9d6ed7/Captura_de_pantalla_2024-03-26_a_la(s)_10.59.56_a._m..png"/></a></figure><h3 id="585d7a63-8af0-4ed6-82d9-f762e85b8124" class="block-color-brown"><mark class="highlight-purple">El proceso que sigue la mayoría</mark></h3><figure id="5fd1382e-c304-47a4-a2a6-0747988897e2" class="image"><a href="Oferta%20de%20Adquisicio%CC%81n%20e6882a2a0830437db4507bcb1c9d6ed7/Captura_de_pantalla_2024-03-26_a_la(s)_11.00.36_a._m..png"><img style="width:918px" src="Oferta%20de%20Adquisicio%CC%81n%20e6882a2a0830437db4507bcb1c9d6ed7/Captura_de_pantalla_2024-03-26_a_la(s)_11.00.36_a._m..png"/></a></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="b30c6ee3-d3bc-4c3f-9b7d-a24b1531aebb"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Muchas marcas ponen anuncios en muchos productos sin tener claro cuál de ellos será seleccionado</div></figure><h2 id="0bdefe52-4eda-45b6-b11b-2e3fe36b6ded" class="block-color-blue">Averigüemos como seleccionar una oferta de adquisición ganadora.</h2><h3 id="ae883701-5ffe-46cb-bd10-759c21a6816a" class=""><mark class="highlight-brown">Existen tres tipos de marca.</mark></h3><ul id="fc2e9f35-6fd3-4e91-9167-e9e29fe63cd0" class="bulleted-list"><li style="list-style-type:disc"><strong>Marca de compra recurrente:</strong> las marcas venden un producto o productos que tienen un alto índice de reposición, lo que significa que están destinados a ser comprados más de una vez en la vida por el consumidor, a menudo más de una vez al año. Cosméticos, alimentación y bebidas, salud y suplementos, ropa y moda son algunos ejemplos.</li></ul><ul id="e91271ae-8b58-4a6b-9eda-4d5e2ed90910" class="bulleted-list"><li style="list-style-type:disc"><strong>Marca de compra única:</strong> el producto suele tener un precio elevado o comprarse una sola vez en la vida. Decoración del hogar/muebles, tecnología son algunos ejemplos.</li></ul><ul id="11eeedfe-e367-484a-b6bb-29cd4feab317" class="bulleted-list"><li style="list-style-type:disc"><strong>Tiendas uni-producto:</strong> sólo venden un producto.</li></ul><h2 id="8ccf0995-00ed-400a-91cc-fb5452f6559a" class="block-color-blue">Ofertas para <strong>Marcas de compra recurrente (MRC)</strong></h2><ul id="55e18bb9-1f55-4c7b-8e8b-f230ddc00a37" class="bulleted-list"><li style="list-style-type:disc">Dos factores principales<ul id="ebd9a033-d44d-4c75-be2f-3bf45533e9d9" class="bulleted-list"><li style="list-style-type:circle"><strong>Quieren probar antes de comprar:</strong> como los MCR suelen ser consumibles, el cliente potencial quiere probar antes de comprar y esto crea una gran oportunidad para los siguientes tipos de ofertas de adquisición:<ul id="711b9338-e8e1-4206-9539-0ac186f3f7fd" class="bulleted-list"><li style="list-style-type:square">Producto Gratis + Envío (solo paga el envío)</li></ul><ul id="2e2395af-88f8-4e87-9313-161c7f82efc2" class="bulleted-list"><li style="list-style-type:square">Set de prueba/descubrimiento</li></ul></li></ul><ul id="c3ee02da-2d31-430c-b009-ab8994baeb73" class="bulleted-list"><li style="list-style-type:circle"><strong>Querer las cosas sencillas:</strong> con la cantidad de ofertas que hay, la gente no quiere encontrarse con la paradoja de selección. Disminuir la complejidad y aumentar el alto valor percibido crea una gran oportunidad para los siguientes tipos de Oferta de Adquisición:<ul id="b08ef29d-5836-492b-9933-185f1f00b725" class="bulleted-list"><li style="list-style-type:square">Set/Pack</li></ul><ul id="5a663f00-5b21-4933-97ff-0669cfd68244" class="bulleted-list"><li style="list-style-type:square">Producto único</li></ul></li></ul></li></ul><h3 id="d27f2b27-2748-452e-af84-5ab197d95746" class=""><mark class="highlight-brown">Ofertas de Producto Gratis + Envío</mark></h3><ul id="ce0bddd6-eda6-4f9e-8bcd-545bac84f9f7" class="bulleted-list"><li style="list-style-type:disc"><strong>Como funciona:</strong> el producto/pack inicial es gratuito y el cliente sólo paga los gastos de envío. A menudo, los &quot;gastos de envío&quot; se calculan sobre la base de los gastos de envío reales del producto más el coste de los bienes vendidos. La mayoría de las marcas que hacen esto alcanzan el punto de equilibrio con el producto, pero muchas están dispuestas a perder dinero porque saben que el 20-30% de los clientes volverán y comprarán, y conocen el valor de por vida del cliente.<br/><br/></li></ul><ul id="33c3dcf0-b6e3-4720-bfeb-1a0af4560753" class="bulleted-list"><li style="list-style-type:disc"><strong>Precio:</strong> producto gratuito + gastos de envío de 4$ a 12$.<br/><br/></li></ul><ul id="fd21c309-0ffc-4eda-8e15-702707593c9f" class="bulleted-list"><li style="list-style-type:disc"><strong>Por qué funciona:</strong> permite al cliente probar la marca antes de comprarla por completo. Suelen utilizarse para productos destinados al consumo o al uso corporal.</li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="62ffd157-4be0-4b89-a9f3-dd74892fbb9f"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">CPA =  Pagar por adquirir cliente (anuncios)<p id="b2b59e95-0440-45ce-b162-d8c8f4aeaa98" class="">COGS = Costes de los productos vendidos (Coste del producto + coste del envío)</p><p id="e1ab32db-6394-4bc3-b01e-48877a2c55b7" class="">REV = Pago por el set inicial (pago del envío + pago del producto) </p><p id="e7384b59-7eff-47bd-9583-96256d19f6ac" class="">PPA = beneficio por adquisición</p><p id="824e799e-70c3-4e24-9a6a-75124c210d82" class="">PROFIT PER xNum = Beneficios multiplicado por xNumero</p></div></figure><figure id="dd1ac3c5-dd9b-489c-803b-c5ec0d87f517" class="image"><a href="Oferta%20de%20Adquisicio%CC%81n%20e6882a2a0830437db4507bcb1c9d6ed7/Captura_de_pantalla_2024-03-26_a_la(s)_11.39.52_a._m..png"><img style="width:708px" src="Oferta%20de%20Adquisicio%CC%81n%20e6882a2a0830437db4507bcb1c9d6ed7/Captura_de_pantalla_2024-03-26_a_la(s)_11.39.52_a._m..png"/></a></figure><h3 id="f8757316-05c1-4007-9140-9b6c8aee369f" class=""><mark class="highlight-brown">Set de prueba/descubrimiento</mark></h3><ul id="371d71bf-441c-4f40-b090-594689128b34" class="bulleted-list"><li style="list-style-type:disc"><strong>Cómo funciona:</strong> las marcas agrupan su mejor gama de productos/ colección en un set de descubrimiento de productos de menor tamaño. Normalmente, el precio del Set de Descubrimiento se destina a la compra completa del producto en un plazo determinado (normalmente 30 días).</li></ul><ul id="69bd169e-b078-46c2-adf9-f867876ad4c4" class="bulleted-list"><li style="list-style-type:disc"><strong>Precio:</strong> oscila entre 15 y 50 dólares.</li></ul><ul id="9518ceab-791b-4b3a-8362-871f4c1d5129" class="bulleted-list"><li style="list-style-type:disc"><strong>Por qué funciona:</strong> al igual que el modelo gratuito + envío, permite al cliente probar sin comprometerse en exceso. Y, sobre todo, sí lo que se paga se destina al tamaño completo, lo hace muy irresistible para el cliente potencial. Alrededor del 20-25% se convertirá en una<br/>compra de tamaño completo.<br/></li></ul><h3 id="6e75a351-7234-478d-b15a-25d677c344bc" class=""><mark class="highlight-brown">Pack</mark></h3><ul id="2c5cc190-eb9b-410f-a084-2382ab925ee4" class="bulleted-list"><li style="list-style-type:disc"><strong>Cómo funciona:</strong> se echa un vistazo a algunos de los productos de la colección general y, si aún no están agrupados, se agrupan los productos. El objetivo principal es convertirlo en una<br/>&quot;fórmula&quot;, una &quot;rutina&quot;, un &quot;proceso&quot;. <br/></li></ul><ul id="b4609430-bb36-4fa4-b3ac-ac624b2aee61" class="bulleted-list"><li style="list-style-type:disc"><strong>Precio:</strong> 100$- 500$.</li></ul><ul id="4eac268d-8e2e-4b00-a472-acf8191defa8" class="bulleted-list"><li style="list-style-type:disc"><strong>Por qué funciona:</strong> reduce la complejidad para el cliente porque no tiene que elegir entre un sinfín de productos diferentes. Le explicas la rutina exacta que necesita y cómo utilizar los<br/>productos juntos. Esto, a su vez, aumenta el valor percibido del producto, porque añade más valor que los productos por sí solos. Al ser un pack, puede tener un precio más alto.<br/></li></ul><h3 id="9c53b249-6c14-41c4-9afa-087fade0df44" class=""><mark class="highlight-brown">Producto único</mark></h3><ul id="9bc8a3ea-454c-414d-b11d-65f2e948d5cc" class="bulleted-list"><li style="list-style-type:disc">Cómo funciona: si la opción del pack no es posibilidad y el producto es lo suficientemente<br/>&quot;innovador&quot; como para valerse por sí mismo, la adquisición puede ser a veces una oferta de un solo producto.<br/></li></ul><ul id="a79299f2-9853-48fa-99f1-8ced0e445575" class="bulleted-list"><li style="list-style-type:disc">Precio: €30-€70</li></ul><ul id="13e18793-6440-4600-9420-a85b69fc67d6" class="bulleted-list"><li style="list-style-type:disc">Por qué funciona: el producto es lo suficientemente innovador y tiene suficiente prueba social. Resuelve el problema/resultado deseado por el consumidor por sí solo.</li></ul><h3 id="9bb4018a-f479-461d-9e44-14b50b4b26d2" class=""><mark class="highlight-purple">Tener en cuanta al cliente</mark></h3><ul id="bb486f29-0681-40bb-a882-2c9e1d1797ff" class="bulleted-list"><li style="list-style-type:disc"><strong>Desarrollo:</strong> muchos clientes/marcas no podrán agrupar productos para crear un set de descubrimiento o un pack, o los conjuntos que se suelen utilizar para Gratis+Envío. Y sí pueden, pero quizás tarden unos meses. Si ese es el caso, también puedes optar por la opción de pack. O si tienen un producto singular innovador que destaque entre todos sus demás productos, también puedes utilizar el enfoque de &quot;producto único&quot;.<br/><br/></li></ul><ul id="bac161fb-1848-436f-9e3b-d0b027800293" class="bulleted-list"><li style="list-style-type:disc"><strong>Financieros:</strong> algunos clientes no querrán llegar al punto de breakeven o perder un poco de dinero en la fase inicial, aunque obtengan muchos beneficios en la fase final, simplemente porque no tienen liquidez. Por lo tanto, la oferta de Set de Descubrimiento o Gratis+Envío no será muy adecuada para estos clientes potenciales.</li></ul><h2 id="c933d3c9-531a-4076-bac3-4189687cdcaf" class="block-color-blue"><strong>Marcas de compra única</strong></h2><h3 id="9668a974-c64a-4aa6-be84-6e1132a09c8c" class=""><mark class="highlight-brown">Productos virales</mark></h3><ul id="4dd09a01-ee04-4781-bf4c-761afc06da86" class="bulleted-list"><li style="list-style-type:disc"><strong>Cómo funciona:</strong> estos productos hablan por sí solos y se valen por sí mismos. Son muy poco frecuentes, y la mayoría de las marcas con las que trabajamos no se basan en productos de<br/>tipo &quot;viral&quot;. El objetivo de un producto viral no es tanto crear marca, sino mover muchas unidades en poco tiempo. A menudo se saturan muy rápido con otros competidores.<br/><br/></li></ul><ul id="d13d605a-0a8d-4b5a-8ead-a09b065bbab7" class="bulleted-list"><li style="list-style-type:disc"><strong>Por qué funciona:</strong> el proceso de venta es corto, ya que se trata de una compra impulsiva. El producto en sí hace la venta, pero es casi una lotería conseguir viralidad con un producto.</li></ul><p id="3a306dbb-3fc9-4562-9ecf-3102d4095cfb" class="">Ej: Lion Card</p><h2 id="2d70c900-f57e-40d7-afd4-714e16d44f92" class="block-color-blue">Tienda de un solo producto</h2><ul id="30bd6a55-bfe9-4377-bef0-20a87759a3f1" class="bulleted-list"><li style="list-style-type:disc"><strong>Cómo funciona:</strong> la marca se basa en un único producto, normalmente algo que han &quot;inventado&quot;, una idea que introducen en el mercado. Su marca se basa en el producto, del que puede haber algunas variaciones.<br/><br/></li></ul><ul id="28560600-e375-472e-ad51-4188a7e6de66" class="bulleted-list"><li style="list-style-type:disc"><strong>Por qué funciona:</strong> mantiene la complejidad muy baja para la marca y para nosotros como Growth Partner, ya que no hay que elegir. La decisión ya está tomada. Además, los productos de estas tiendas uni-producto suelen ser innovadores y dan lugar a anuncios y<br/>embudos atractivos.<br/></li></ul><p id="9223743e-5371-407f-8f03-74f09a7f7a16" class="">Ej: Snooz, whoop</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

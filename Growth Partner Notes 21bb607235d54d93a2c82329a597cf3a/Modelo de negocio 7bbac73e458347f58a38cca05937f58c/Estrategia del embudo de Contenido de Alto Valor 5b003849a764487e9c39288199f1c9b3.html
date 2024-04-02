@@ -1,0 +1,680 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Estrategia del embudo de Contenido de Alto Valor</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="5b003849-a764-487e-9c39-288199f1c9b3" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="https://www.notion.so/icons/chemistry_purple.svg"/></div><h1 class="page-title">Estrategia del embudo de Contenido de Alto Valor</h1><p class="page-description"></p></header><div class="page-body"><figure id="c904092e-c284-4ac8-a50b-1873d2e714ba" class="image"><a href="Estrategia%20del%20embudo%20de%20Contenido%20de%20Alto%20Valor%205b003849a764487e9c39288199f1c9b3/Captura_de_pantalla_2024-03-26_a_la(s)_2.41.33_p._m..png"><img style="width:708px" src="Estrategia%20del%20embudo%20de%20Contenido%20de%20Alto%20Valor%205b003849a764487e9c39288199f1c9b3/Captura_de_pantalla_2024-03-26_a_la(s)_2.41.33_p._m..png"/></a></figure><h2 id="7ead2548-dd52-4926-8acc-07bca2454650" class="block-color-blue">¿Qué es un embudo de venta?</h2><p id="656744b6-81ff-4ac9-8b39-caa8d5832b8b" class="">El proceso por el que tomamos a un completo desconocido que nunca ha oído hablar de nuestra marca y lo convertimos en cliente que recompra </p><figure id="0940f453-da24-4d5e-9204-a6f44091028e" class="image"><a href="Estrategia%20del%20embudo%20de%20Contenido%20de%20Alto%20Valor%205b003849a764487e9c39288199f1c9b3/Captura_de_pantalla_2024-03-26_a_la(s)_4.54.30_p._m..png"><img style="width:509px" src="Estrategia%20del%20embudo%20de%20Contenido%20de%20Alto%20Valor%205b003849a764487e9c39288199f1c9b3/Captura_de_pantalla_2024-03-26_a_la(s)_4.54.30_p._m..png"/></a></figure><h2 id="c9fdcfcc-946e-4a40-a6d7-088cf3fa6c98" class="block-color-blue">Introducción al Marketing de Contenido de Valor</h2><h3 id="85acc356-0ce2-4e97-9e46-5420e68ce69e" class=""><mark class="highlight-brown">Como lo hacen la mayoría de marcas.</mark></h3><figure id="8826faa3-4019-4034-8cce-353d72a42b94" class="image"><a href="Estrategia%20del%20embudo%20de%20Contenido%20de%20Alto%20Valor%205b003849a764487e9c39288199f1c9b3/Captura_de_pantalla_2024-03-26_a_la(s)_4.59.34_p._m..png"><img style="width:1046px" src="Estrategia%20del%20embudo%20de%20Contenido%20de%20Alto%20Valor%205b003849a764487e9c39288199f1c9b3/Captura_de_pantalla_2024-03-26_a_la(s)_4.59.34_p._m..png"/></a></figure><h3 id="68d2aba4-7609-46a2-b29a-3ee848158bb5" class="block-color-red">El problema</h3><p id="d45b22ae-d6de-4f3e-98e1-e07d4cc5efaf" class="">Este es el 100% de las personas que están en internet y sus diferentes modos</p><figure id="c8e337ff-7e96-40dc-97d3-7a2cc2b54a80" class="image"><a href="Estrategia%20del%20embudo%20de%20Contenido%20de%20Alto%20Valor%205b003849a764487e9c39288199f1c9b3/Captura_de_pantalla_2024-03-26_a_la(s)_5.25.46_p._m..png"><img style="width:708px" src="Estrategia%20del%20embudo%20de%20Contenido%20de%20Alto%20Valor%205b003849a764487e9c39288199f1c9b3/Captura_de_pantalla_2024-03-26_a_la(s)_5.25.46_p._m..png"/></a></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="e5af7464-dcd8-4e10-89a7-929caeee1295"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Nuestro objetivo es captar a todo el pastel (100% del mercado) y como lo hacemos? ⤵️</div></figure><h2 id="722ca628-801f-42b9-8076-a07bf45c0b0c" class="block-color-blue">C<mark class="highlight-blue">reando una oferta de Contenido de Alto Valor (OCAV)</mark></h2><ul id="48af5daa-7f4a-4140-be52-5ed16dd48ac8" class="bulleted-list"><li style="list-style-type:disc"><strong>Qué es:</strong> una oferta inicial que no comienza con un producto y una llamada a la acción para comprar algo, sino que comienza ofreciendo valor al cliente potencial con la intención de inspirarle, entretenerle, y los más importante, educarle.</li></ul><ul id="4d032f12-c229-4fb4-8143-c227e58837b9" class="bulleted-list"><li style="list-style-type:disc"><strong>Por qué funciona:</strong> la “temperatura” de nuestra oferta inicial debe coincidir siempre con la temperatura de nuestro público. Cuando el marketing de una marca consiste en gritar “Compre mis productos”, solo está atrayendo a una parte de los compradores potenciales, y se está perdiendo un porcentaje enorme. Una OCAV crea intriga y consigue que el cliente potencial levante la mano y diga “me interesa”, y nos permite capturar todo el pastel de compradores potenciales</li></ul><ul id="ee910a39-f12c-411a-b7a8-891ce4de8ab1" class="bulleted-list"><li style="list-style-type:disc"><strong>Mejores anuncios:</strong> no sólo aumenta las conversiones en las landings, sino que se adapta a mejores anuncios (de los que hablamos más adelante) porque encaja en el contexto de las redes sociales (valor, entretenimiento, etc…)</li></ul><ul id="258e80fe-2ec4-4520-ac40-772c5e5bebdd" class="bulleted-list"><li style="list-style-type:disc"><strong>Demostrar lo bueno que somos:</strong> hay tres formas de influir en la gente. Hablar de lo buenos que somos, hacer que otros hablen de lo buenos que somos, demostrar lo bueno que somos</li></ul><h3 id="09df9518-4bf0-43f3-b20d-a099597d7ff3" class=""><mark class="highlight-brown">Nuestra manera (muy raro en E-commerce)</mark></h3><figure id="ace46b4b-e921-4a1e-a505-c6b461141902" class="image"><a href="Estrategia%20del%20embudo%20de%20Contenido%20de%20Alto%20Valor%205b003849a764487e9c39288199f1c9b3/Captura_de_pantalla_2024-03-26_a_la(s)_6.10.44_p._m..png"><img style="width:708px" src="Estrategia%20del%20embudo%20de%20Contenido%20de%20Alto%20Valor%205b003849a764487e9c39288199f1c9b3/Captura_de_pantalla_2024-03-26_a_la(s)_6.10.44_p._m..png"/></a></figure><h3 id="b17ac1d5-c425-4117-afa5-a02dedf713cb" class=""><mark class="highlight-red">La mayoría de marcas</mark></h3><figure id="1b734f25-842f-45a1-a386-c0cddbb160d1" class="image"><a href="Estrategia%20del%20embudo%20de%20Contenido%20de%20Alto%20Valor%205b003849a764487e9c39288199f1c9b3/Captura_de_pantalla_2024-03-26_a_la(s)_6.12.29_p._m..png"><img style="width:708px" src="Estrategia%20del%20embudo%20de%20Contenido%20de%20Alto%20Valor%205b003849a764487e9c39288199f1c9b3/Captura_de_pantalla_2024-03-26_a_la(s)_6.12.29_p._m..png"/></a></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="a4c219dc-76b1-4f5e-b8e5-0b14b10b3c11"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">CTR = Gente que da click al anuncio<p id="d2dc9e8a-5606-4a6e-a7b5-eaf708893822" class="">CR  = El randio de conversión o convertion rate</p></div></figure><h2 id="a617814d-a688-46f7-8fcf-962cf883ccf0" class=""><mark class="highlight-blue">Tipos de Ofertas de Contenido de Alto Valor</mark></h2><figure id="68109c3f-61f9-4cc1-a35a-6b09a3507785" class="image"><a href="Estrategia%20del%20embudo%20de%20Contenido%20de%20Alto%20Valor%205b003849a764487e9c39288199f1c9b3/Captura_de_pantalla_2024-03-26_a_la(s)_6.32.07_p._m..png"><img style="width:708px" src="Estrategia%20del%20embudo%20de%20Contenido%20de%20Alto%20Valor%205b003849a764487e9c39288199f1c9b3/Captura_de_pantalla_2024-03-26_a_la(s)_6.32.07_p._m..png"/></a></figure><h2 id="1d18c3d5-2373-41b5-a5ca-fcc84ddb9ed6" class=""><mark class="highlight-blue">Oferta de adquisición para el VSL de E-commerce</mark></h2><ul id="3f32ba1a-27fa-4889-a2ab-8e530abff3fe" class="bulleted-list"><li style="list-style-type:disc"><strong>Pack:</strong> lo principal que determina que OCAV utilizar el precio. Un VSL de E-commerce es ideal para un pack porque es la oferta con el ticket más alto de todas las que hemos mencionado, el VSL de E-commerce es el embudo más largo de todos.</li></ul><ul id="da5d75e3-1543-4e98-89ee-b513ffee9354" class="bulleted-list"><li style="list-style-type:disc"><strong>Precio:</strong> es importante que el producto tenga un precio elevado. El uso de un VSL de E-commerce para un oferta que es menor de 100$ todavía puede funcionar, pero no es la forma más eficaz de vender este tipo de producto. La fricción y los pasos adicionales añadidos no valen el coste de la compra.</li></ul><ul id="67c91cde-1547-468b-996f-2cc8b115a1a6" class="bulleted-list"><li style="list-style-type:disc"><strong>Aumentar el precio:</strong> si estás luchando para conseguir que tu pack esté en el rango de 100 a 300 dólares, puedes añadirle un infoproducto (eBook, curso, entrevistas exclusivas, newslatter VIP, llamadas con un experto [nicho] para aumentar el valor percibido y el precio. Son ideas geniales porque cuentas 0$)</li></ul><h3 id="f826f9cd-d652-4ae2-a4b0-c0084b84ee01" class=""><mark class="highlight-purple">El embudo</mark></h3><figure id="fd47a3ec-a795-4cdf-a468-0d2aa8ef409a" class="image"><a href="Estrategia%20del%20embudo%20de%20Contenido%20de%20Alto%20Valor%205b003849a764487e9c39288199f1c9b3/Captura_de_pantalla_2024-03-26_a_la(s)_6.48.14_p._m..png"><img style="width:680px" src="Estrategia%20del%20embudo%20de%20Contenido%20de%20Alto%20Valor%205b003849a764487e9c39288199f1c9b3/Captura_de_pantalla_2024-03-26_a_la(s)_6.48.14_p._m..png"/></a></figure><h3 id="605fe2a6-ccaf-4dfb-8a3d-2d56dc1dbfcd" class=""><mark class="highlight-brown">El VSL de E-commerce</mark></h3><ul id="6bcf86e2-9dbe-41e3-9022-68496174c0e5" class="bulleted-list"><li style="list-style-type:disc"><strong>Página de registro al VSL:</strong> los clientes potenciales llegan a esta página después de ver el anuncio, y se les pide que introduzcan su correo electrónico a cambio del valor prometido en el anuncio que capta su interés.</li></ul><ul id="a9ecf995-df2e-4cd4-9196-78bcb666eb44" class="bulleted-list"><li style="list-style-type:disc"><strong>Página VSL:</strong> la página donde está alojado el vídeo. Debajo del vídeo hay un botón que les lleva a la página del producto donde alojamos la Oferta de Adquisición<figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="b0f200ed-cb4a-4258-b7f5-bae53959e12f"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Es importante construir primero el valor antes de enseñar el botón (Pon el botón hasta cuando termine el video)</div></figure></li></ul><ul id="1c450e20-d62a-4cf8-af28-a97a787ad906" class="bulleted-list"><li style="list-style-type:disc"><strong>Página de Producto de la oferta de Adquisición:</strong> en esta página alojamos la oferta de adquisición y se invita al cliente potencial a comprar</li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="dbb3830b-a60e-45a3-a8ec-f612d50ab7ec"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Estas página las creamos en leadpages.com, clickfunnels o HighLevel (más adelante miramos esto)</div></figure><h3 id="bb5a531e-023c-4f77-879c-8296bee5e79a" class=""><mark class="highlight-brown">Ejemplo del VSL de E-commerce</mark></h3><p id="4a85d4c8-2800-4e70-815c-1107cdeeafce" class=""><mark class="highlight-yellow"><a href="https://drplanas.agefit.com/registro">https://drplanas.agefit.com/registro</a></mark></p><h3 id="41397ddb-3e5f-49ff-bdd8-46430a693168" class=""><mark class="highlight-brown">Cómo Crear un Título Llamativo</mark></h3><ul id="c0c1565a-9a91-4041-956f-65e223d5f9ee" class="bulleted-list"><li style="list-style-type:disc"><strong>Convertir la Solución en un Problema que “no les deja dormir”:</strong> vamos a invertir la solución que aporta la oferta de adquisición de la marca y convertirla en los <mark class="highlight-teal">problemas/resultado deseado </mark><mark class="highlight-default">que resuelve. Una vez que hayamos identificado el mayor</mark> <mark class="highlight-teal">problemas/resultado deseado </mark><mark class="highlight-default">que resuelve, vamos a crear un titulo a partir de eso.</mark></li></ul><p id="032361de-3984-489a-85e6-ebf046860c7e" class="">
+</p><ul id="c9bdcd6e-2f82-428a-8c28-16a1136570c0" class="bulleted-list"><li style="list-style-type:disc"><strong>Titulares esenciales:</strong><ul id="d5ae8e8e-758f-47d7-8120-817af946d449" class="bulleted-list"><li style="list-style-type:circle"><strong>Atrapa al Público y les Obliga a Leerlo: </strong>de media, la mayoría de la gente lee 5 veces más el titular que el contenido del texto. El titulo de la VSL/masterclass debe ser algo que su público se detenga a leer.</li></ul><ul id="0d2dc8ba-6d87-49b5-b8eb-273f68e96118" class="bulleted-list"><li style="list-style-type:circle"><strong>Crea Intriga:</strong> no basta con llamar su atención y venderles los beneficios. Hay que despertar su interés y curiosidad. Palabras como “Alarmante”, “Impactante”, “Revelado”, “Expuesto”, “¡Por fin!”, “Secreto”, “¡No te lo creerás!” crean intriga</li></ul><ul id="702d1638-87e9-4a74-864d-144304495f51" class="bulleted-list"><li style="list-style-type:circle"><strong>Resultado Deseado:</strong> el VSL de E-commerce será sobre ellos y su resultado deseado. Escribe el beneficio inmediato y la clave que su cliente potencial quiere y necesita, no sobre ti. Muéstrales cómo se ve su resultado deseado y enséñales como conseguirlo: qué obtienen a cambio de su correo electrónico.</li></ul><ul id="999e5679-be71-482f-9eec-77e275f87b7d" class="bulleted-list"><li style="list-style-type:circle"><strong>Números:</strong> lo hace tangible y lógico para que el cliente potencial lo entienda, y establece una estructura fácil de seguir.</li></ul></li></ul><h3 id="16113239-683d-4f12-b432-e76e7906b2ae" class="block-color-purple">4 Fórmulas Atemporales para tus títulos VSL de E-commerce</h3><ul id="526d3355-e38b-4089-96b5-bf883fd63f09" class="bulleted-list"><li style="list-style-type:disc">Formula ‘Perenne’ #1<ul id="4f35e51a-c7b9-4f15-ba55-6f097215be59" class="bulleted-list"><li style="list-style-type:circle">X maneras de conseguir [Resultado deseado] sin realizar [Acción no deseada]</li></ul><ul id="6e443336-2db6-40e0-859e-225e063352b3" class="bulleted-list"><li style="list-style-type:circle">5 maneras De Conseguir Abdominales de en Sueño Para Este Verano Sin Hacer Una Sola Sentadilla</li></ul></li></ul><ul id="9b9145de-08f5-4694-81b5-b8aa04dafec6" class="bulleted-list"><li style="list-style-type:disc">Formula ‘Perenne’ #2<ul id="986bbf00-16ed-468b-ab41-aaba5fdc3e0e" class="bulleted-list"><li style="list-style-type:circle">Consiga [el resultado deseado] como [un experto en el espacio] incluso sin [algo esperado]</li></ul><ul id="16f39df4-6bad-4215-8deb-aea5678d4ec2" class="bulleted-list"><li style="list-style-type:circle">Haga que Su Piel Brille Como La De Angelina sin Necesidad de Cirugía</li></ul></li></ul><ul id="bd7a9de9-682f-42e8-b238-622297418442" class="bulleted-list"><li style="list-style-type:disc">Formula ‘Perenne’ #3<ul id="ae4feaaa-a12c-4ecd-a38a-d373927fb0fc" class="bulleted-list"><li style="list-style-type:circle">[Haga algo difícil] en [Un Plazo de tiempo Específico], incluso si [Dificultades]<ul id="ba7e4b33-0754-4e58-8dbe-73c5d3a91a92" class="bulleted-list"><li style="list-style-type:square">Pague la Hipoteca de su Casa en 6 Años Aunque Tenga Ingresos Modestos</li></ul></li></ul></li></ul><ul id="a396d6f5-ce7c-4fb3-a891-387c0acb9a14" class="bulleted-list"><li style="list-style-type:disc">Formula ‘Perenne’ #4<ul id="8750c210-f882-4867-aebf-87aa2f18f1f0" class="bulleted-list"><li style="list-style-type:circle">Cómo Eliminar [El Problema Más Grande] Sin Hacer [Algo Que Odian] Dentro De [Plazo Específico]</li></ul><ul id="85ec900d-56c8-4ea9-b03f-b596cac0582b" class="bulleted-list"><li style="list-style-type:circle">Como Deshacerse de Sus Michelines Sin Renunciar A Los Alimentos Que Ama - ¡en 30 días o Menos!</li></ul></li></ul><p id="25cd491a-9b2e-4bac-90c5-fea1b8aae630" class=""><mark class="highlight-yellow">Ejemplo</mark></p><figure id="1d1c5365-b265-424d-8ae3-3a9d9ceefca6" class="image"><a href="Estrategia%20del%20embudo%20de%20Contenido%20de%20Alto%20Valor%205b003849a764487e9c39288199f1c9b3/Captura_de_pantalla_2024-03-26_a_la(s)_8.12.10_p._m..png"><img style="width:1073px" src="Estrategia%20del%20embudo%20de%20Contenido%20de%20Alto%20Valor%205b003849a764487e9c39288199f1c9b3/Captura_de_pantalla_2024-03-26_a_la(s)_8.12.10_p._m..png"/></a></figure><p id="b94b74d9-9eaf-4982-9ef5-752b4760b14a" class=""><mark class="highlight-yellow">Ejemplo 2</mark></p><figure id="7e55a4cf-b601-4f96-95ee-b688612477b9" class="image"><a href="Estrategia%20del%20embudo%20de%20Contenido%20de%20Alto%20Valor%205b003849a764487e9c39288199f1c9b3/Captura_de_pantalla_2024-03-26_a_la(s)_8.16.17_p._m..png"><img style="width:708px" src="Estrategia%20del%20embudo%20de%20Contenido%20de%20Alto%20Valor%205b003849a764487e9c39288199f1c9b3/Captura_de_pantalla_2024-03-26_a_la(s)_8.16.17_p._m..png"/></a></figure><p id="b7cd92f9-101f-4c57-95e6-6c27b6a458b6" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="f3342856-a585-487c-a774-8e24ecf8fcab"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Cuando tú creas estas formulas que son bastantes simples cuando las entiendes. Una vez desarrolladas y puestas en su sitio gastas mucho menos tiempo que cualquier agencia de marketing, founder, freelancer, etc… Porque es un proceso atemporal que funciona y funciona como una máquina hasta por 6-12 meses</div></figure><h3 id="44a050ce-d2c1-4bb7-bea0-dde0a327731d" class=""><mark class="highlight-brown">Visión general del Mini-VSL</mark></h3><ul id="13f7ea09-fb1a-4629-8e42-eca68126f0c1" class="bulleted-list"><li style="list-style-type:disc"><strong>Implementación simple y rápida:</strong> la acción es absolutamente vital para tener éxito en el mundo de los negocios online porque la velocidad importa. Montar el Mini-VSL, grabarlo y editarlo no debería llevarte más de 1 semana. Habrá clientes que se lo piensen demasiado, pero hay que añadirle urgencia.</li></ul><ul id="22e8770e-2379-434c-9de5-3633b5928609" class="bulleted-list"><li style="list-style-type:disc"><strong>Elementos:</strong><ul id="b14b4388-fe01-4af4-b83d-e805cd221e09" class="bulleted-list"><li style="list-style-type:circle"><strong>Vídeo: 5-7 min:</strong> Este es un video ligeramente más corto y lo trato más como lo que se vería en Youtube</li></ul><ul id="25ac8609-2940-4ead-8855-55051ba355a0" class="bulleted-list"><li style="list-style-type:circle"><strong>Presentación de diapositivas (opcional):</strong> a menos que el cliente se sienta muy cómodo ante la cámara o que el producto esté dirigido a un público más joven, considero que las presentaciones de diapositivas son fáciles de seguir y facilitan al cliente la grabación, ya que no tiene que memorizar mucho.</li></ul><ul id="5430830b-ac07-4dff-a949-f072ca9b5f5c" class="bulleted-list"><li style="list-style-type:circle"><strong>Audio:</strong> tampoco es imprescindible, pero un micrófono siempre viene bien</li></ul><ul id="bf5612ee-7af4-40d1-a843-7838dafc7509" class="bulleted-list"><li style="list-style-type:circle"><strong>Oferta de adquisición:</strong> cómo verás en los ejemplos que daré, al final del VSL, presentamos la oferta de adquisición, y tener el paquete físico es importante para el espectador. Cuanto más tangible y físico sea lo que muestre mejor</li></ul></li></ul><h3 id="45b328d1-f560-4177-a624-0e6d1bb37de9" class=""><mark class="highlight-brown">Los Pasos y Funciones</mark></h3><ul id="7bb153a6-5398-41be-9a62-f22a5af0aad4" class="bulleted-list"><li style="list-style-type:disc">Creación del VSL de E-commerce:<ul id="5257227f-2c34-4949-9074-1ef8a5be5d13" class="bulleted-list"><li style="list-style-type:circle">Titulo: Tú como el growth partner</li></ul><ul id="8cd64fd7-a655-44a8-b514-1cddac3452fd" class="bulleted-list"><li style="list-style-type:circle">Contenido VSL: tú con alguna ayuda del cliente (tu tienes que darle el speach)</li></ul></li></ul><ul id="7132dc8d-9f89-4401-9ad1-01d4e0a47f8b" class="bulleted-list"><li style="list-style-type:disc">Grabación del VSL: el cliente lo graba. No tiene que ser el fundador. Puedes elegir a alguien dentro del equipo de la marca E-commerce, y esta persona será la que aparezca en los anuncios de video TOF (hablaremos mas adelante de esto). Si el cliente está cerca (raro), puedes ofrecerte ir a su oficina (con los gastos pagados por ellos).</li></ul><h3 id="555b6e70-e28f-4d8e-9fe3-36a20ffeba69" class=""><mark class="highlight-brown">Claves a Recordar</mark></h3><ul id="4efd41f6-de18-4615-918c-c06d52493db7" class="bulleted-list"><li style="list-style-type:disc">Cada punto debe tocar un deseo ardiente: cada uno de los puntos que cubra el VSL de E-commerce debe abordar un problema clave/resultado deseado. En el ejemplo de AgeFit con el Dr Planas, estos son los puntos:<ol type="1" id="bc916046-0bee-4c6d-aa85-4c48954d8177" class="numbered-list" start="1"><li>Que hace que un rostro se vea envejecido</li></ol><ol type="1" id="777d3c2b-bcec-49aa-922a-69b41339fc84" class="numbered-list" start="2"><li>Las causas desconocidas del envejecimiento y como solucionarlas ya</li></ol><ol type="1" id="f58f403d-eebf-4206-8a15-d6ef6126992f" class="numbered-list" start="3"><li>CMX6 - ¡Un ingrediente rejuvenecedor secreto que no quieren que conozcas!</li></ol></li></ul><ul id="0d781f05-c595-47c5-b9d9-d6f40b42a665" class="bulleted-list"><li style="list-style-type:disc">Mantenlo sencillo: no dejes que la simplicidad te engañe haciéndote creer que no son eficaces. ¿Sabes lo que no es eficaz? Llevarlos directamente a una página de inicio. Algunos de los VSL de mayor conversión han sido sencillas presentaciones de diapositivas que a mí me parecían “aburridas”, pero a nuestro público objetivo le encantaron y vendió mucho</li></ul><h3 id="7da6f5b9-4de6-4961-98d1-9522b826c47a" class=""><mark class="highlight-brown">La Alternativa</mark></h3><ul id="a528a5c3-c0d6-486e-a98a-b407cec86aa5" class="bulleted-list"><li style="list-style-type:disc"><strong>Entender a tu cliente: </strong>Estas instrucciones han sido para que puedan grabar este VSL desde la comodidad de su oficina. La mayoría de los fundadores de E-com estarán completamente de acuerdo con esto y realmente lo disfrutarán, ya que acariciará su ego, sin embargo, si estás viendo que el cliente tiene mucha resistencia hacia la grabación de un video, aquí te dejo buenas alternativas.</li></ul><ul id="2d881161-8b22-4172-ad6f-4a5259358698" class="bulleted-list"><li style="list-style-type:disc"><strong>Alternativas:</strong><ul id="1a22fb32-741f-43f0-b4c0-83189f92746f" class="bulleted-list"><li style="list-style-type:circle"><strong>Descargar de PDF:</strong> puede que hoy en día no sea tan eficaz como un video, pero aún pueden funcionar tremendamente bien y es mucho más fácil de crear.</li></ul><ul id="912c0251-6aae-4df7-91d8-c844e9be3a6a" class="bulleted-list"><li style="list-style-type:circle"><strong>Caso práctico (Case Study)</strong>: página web en la que se detalla un caso práctico</li></ul><ul id="d5601dac-358f-46a6-b69c-243080d07142" class="bulleted-list"><li style="list-style-type:circle"><strong>E-book</strong>: un breve libro electrónico que trate sobre lo que hablaríamos en el VSL</li></ul><ul id="10fefbab-590b-461c-9278-6be8e3f4bee0" class="bulleted-list"><li style="list-style-type:circle"><strong>Publirreportaje:</strong> después de darnos su correo electrónico, también puedes llevarlos a una página de publirreportaje (Ejemplo Scandinavian Biolabs)</li></ul></li></ul><h2 id="b47f0ff3-413a-436d-9f65-9047ac0f36d7" class=""><mark class="highlight-blue">Oferta de adquisición para el Mini-VSL</mark></h2><ul id="3b43261c-d13d-4d8b-8d21-b7b85f03e9d5" class="bulleted-list"><li style="list-style-type:disc"><strong>Pack: </strong>el factor principal que determinará qué OCAV utilizaremos será el precio. Un mini-VSL, también puede funcionar para la oferta del Pack porque los anuncios se pueden dirigir con un enfoque en contenido de valor y el precio todavía requiere un poco más de venta que un solo punto</li></ul><ul id="07b385fe-5f25-44d6-b65f-81794bd2aba2" class="bulleted-list"><li style="list-style-type:disc"><strong>precio:</strong> Esto funciona mejor para los packs que están en el extremo inferior del rango de 100 a 300 dólares.</li></ul><ul id="924df88b-2494-475f-aa2f-44dcaae0b440" class="bulleted-list"><li style="list-style-type:disc"><strong>Audiencia orgánica:</strong> incluso he utilizado el VSL de E-commerce para el trafico frío y el MIni-VSL para la estrategia orgánica para mi marca, AgeFit by Jorge Planas. He encontrado que es ideal para un público orgánico que ya han construido la confianza con la marca y ya están siguiendo la marca, por lo que no necesitamos tanto el correo electrónico.</li></ul><h3 id="3977bcad-b4f6-4389-9775-d9b2a47e2871" class=""><mark class="highlight-brown">Tiendas de un solo producto</mark></h3><ul id="076cc176-eae3-4834-a3d8-a52cacc8412c" class="bulleted-list"><li style="list-style-type:disc">Tiendas de un solo producto: el Mini-VSL es una gran opción especialmente para aquellas tiendas de un solo producto que rondan entre los 100 y los 300 dólares. Es una forma más efectiva de vender el producto y, de nuevo, los anuncios para conducir a la gente a la página de destino pueden enmarcarse con un enfoque en contenido de valor.</li></ul><h3 id="c6b4b423-03a4-4b56-9a51-47ed3289eab3" class=""><mark class="highlight-purple">El embudo</mark></h3><figure id="6ee12ba1-8f1d-40d5-aeee-1781d9397dbd" class="image"><a href="Estrategia%20del%20embudo%20de%20Contenido%20de%20Alto%20Valor%205b003849a764487e9c39288199f1c9b3/Captura_de_pantalla_2024-03-27_a_la(s)_6.48.31_p._m..png"><img style="width:708px" src="Estrategia%20del%20embudo%20de%20Contenido%20de%20Alto%20Valor%205b003849a764487e9c39288199f1c9b3/Captura_de_pantalla_2024-03-27_a_la(s)_6.48.31_p._m..png"/></a></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="7d4f4399-28db-4753-90cf-5dec105f1fd8"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Es un video más corto que el VSL normal y además en este no hay página de registro y la página VSL contiene el VSL y la página de producto de oferta de adquisición</div></figure><h3 id="cc454c2a-2e32-4f67-bd25-f29278dbc5d8" class=""><mark class="highlight-brown">El Mini-VSL</mark></h3><ul id="78c0d419-2ef9-4573-89a7-e95460947686" class="bulleted-list"><li style="list-style-type:disc">Mini-VSL Landing: esta página fusiona la página de Producto de la oferta de adquisición y lo pone todo en uno. Es perfecto ya que todavía podemos conducirlos a la página de producto bajo una promesa de contenido de valor.</li></ul><ul id="de6090fd-4e5b-42c1-920b-8d7e53f78b27" class="bulleted-list"><li style="list-style-type:disc">El valor del Mini-VSL: No sólo realiza la función de un VSL al principio añadiendo valor, sino que elimina un paso extra del embudo del VSL de E-commerce, y aun así puede conducir tráfico a la landing con una promesa de valor, aunque la página que están visitando también tenga la oferta que puede comprar en ella.</li></ul><h3 id="44c85b41-0736-40b5-b327-09aa5e8f3b68" class=""><mark class="highlight-brown">Visión general del Mini-VSL</mark></h3><ul id="baf12451-810b-4c1b-b28c-22f908848818" class="bulleted-list"><li style="list-style-type:disc"><strong>Implementación simple y rápida:</strong> la acción es absolutamente vital para tener éxito en el mundo de los negocios online porque la velocidad importa. Montar el Mini-VSL, grabarlo y editarlo no debería llevarte más de 1 semana. Habrá clientes que se lo piensen demasiado, pero hay que añadirle urgencia.</li></ul><ul id="5369c028-343a-4fcc-8b62-236a0f6a0da2" class="bulleted-list"><li style="list-style-type:disc"><strong>Elementos:</strong><ul id="48dd7117-aabb-4a0f-a357-8f058fcd4e44" class="bulleted-list"><li style="list-style-type:circle"><strong>Vídeo: 5-7 min:</strong> Este es un video ligeramente más corto y lo trato más como lo que se vería en Youtube</li></ul><ul id="3b1999f5-4657-490b-84ce-8acee330be3b" class="bulleted-list"><li style="list-style-type:circle"><strong>Presentación de diapositivas (opcional):</strong> a menos que el cliente se sienta muy cómodo ante la cámara o que el producto esté dirigido a un público más joven, considero que las presentaciones de diapositivas son fáciles de seguir y facilitan al cliente la grabación, ya que no tiene que memorizar mucho.</li></ul><ul id="4bb880e5-1066-4c46-ad4b-568e1ecf48d4" class="bulleted-list"><li style="list-style-type:circle"><strong>Audio:</strong> tampoco es imprescindible, pero un micrófono siempre viene bien</li></ul><ul id="72487a58-9c5f-4d34-8e53-07f04f254784" class="bulleted-list"><li style="list-style-type:circle"><strong>Oferta de adquisición:</strong> cómo verás en los ejemplos que daré, al final del VSL, presentamos la oferta de adquisición, y tener el paquete físico es importante para el espectador. Cuanto más tangible y físico sea lo que muestre mejor</li></ul><h3 id="0855dc0d-fe08-4232-b513-bfb5f0a2b18b" class=""><mark class="highlight-brown">Los Pasos y Funciones</mark></h3></li></ul><ul id="01f1cf13-e13a-418d-90e0-452ef646319a" class="bulleted-list"><li style="list-style-type:disc">Creación del Mini-VSL:<ul id="274be8a5-047d-4ba3-8468-7ef645e63432" class="bulleted-list"><li style="list-style-type:circle">Titulo: Tú como el growth partner</li></ul><ul id="c8c4d905-c735-482f-85d6-22e0773d4d2f" class="bulleted-list"><li style="list-style-type:circle">Contenido VSL: tú con alguna ayuda del cliente (tu tienes que darle el speach)</li></ul></li></ul><ul id="f14ca51f-5b7b-4f2b-8aad-88bf89f249a5" class="bulleted-list"><li style="list-style-type:disc">Grabación de la MIni-VSL: el cliente lo graba. Si el cliente está cerca (poco frecuente), puedes ofrecerle ir a su oficina (con los gastos pagados por ellos)</li></ul><h3 id="ae502838-df65-4994-a1aa-1fd9392fa7c4" class=""><mark class="highlight-brown">Ejemplo del video del MIni-VSL</mark></h3><p id="2a574652-b37c-4882-bd48-c12c25aade15" class=""><mark class="highlight-yellow"><a href="https://youtu.be/vsXhZITjNuQ?si=MNu6UvLtygldUBrD&amp;t=7390">https://youtu.be/vsXhZITjNuQ?si=MNu6UvLtygldUBrD&amp;t=7390</a></mark></p><h3 id="1fe445a2-5cd6-4a8a-8a5c-87ff507fd19c" class=""><mark class="highlight-brown">Claves para recordar</mark></h3><ul id="933aa32e-b467-41d7-92f0-998ebce04b85" class="bulleted-list"><li style="list-style-type:disc">Cada punto debe tocar un deseo ardiente: cada uno de los puntos que cubra dentro de la MIni-VSL debe abordar un problema clave/resultado deseado. En el ejemplo del Dr. Planas, estos eran los puntos<ol type="1" id="2b191ee7-befa-4122-8887-ecc6f4a3535e" class="numbered-list" start="1"><li>Método 321 para conseguir un sueño más profundo al instante</li></ol><ol type="1" id="b069389d-3819-418e-a64b-301e5b34f45a" class="numbered-list" start="2"><li>El Poder de Caminar</li></ol><ol type="1" id="a9fe0fc5-346f-404b-bbd3-75538567d739" class="numbered-list" start="3"><li>Cómo Rejuvenecer la Piel 10-15 años en 90 días o menos</li></ol></li></ul><ul id="5bbcd5d6-d670-4898-974a-a05b14d27d03" class="bulleted-list"><li style="list-style-type:disc">Mantenerlo sencillo: no dejes que la simplicidad te engañe haciéndote creer que no son eficaces. Lo que no es eficaz es llevarlos a una página de inicio</li></ul><p id="23b02d08-526f-4ee4-a83e-216dd743a3b7" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

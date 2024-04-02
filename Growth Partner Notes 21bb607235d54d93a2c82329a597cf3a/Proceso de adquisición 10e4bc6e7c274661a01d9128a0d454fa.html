@@ -1,0 +1,677 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Proceso de adquisición</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="10e4bc6e-7c27-4661-a01d-9128a0d454fa" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="https://www.notion.so/icons/departures_pink.svg"/></div><h1 class="page-title">Proceso de adquisición</h1><p class="page-description"></p></header><div class="page-body"><h1 id="e3c47cdc-307e-47b7-b2f1-d13e5855bf68" class="block-color-blue">Métodos de la nueva era de captación de clientes</h1><h3 id="a030c960-66dc-4d59-8900-cded988cfca4" class="block-color-yellow">Comprender el paisaje</h3><ul id="f746cb39-2924-4067-9fe7-d0d1e68ecea5" class="bulleted-list"><li style="list-style-type:disc">Pasar su tiempo online: Los clientes potenciales de E-commerce pasan el día en internet. Su medio de consumo preferido son las redes sociales. Aquí es donde podemos llegar a ellos sin ser una molestia</li></ul><ul id="f2181e85-5130-441c-a9d9-704ea6e9fa91" class="bulleted-list"><li style="list-style-type:disc">Economía mundial: con el E-commerce, no hay absolutamente ninguna razón por la que nuestro alcance deba estar limitado por la ubicación. Podemos llegar a cualquier empresa de E-commerce, en cualquier parte del mundo.</li></ul><ul id="e8169b18-1ab5-4819-a7fd-a00b56e5ae16" class="bulleted-list"><li style="list-style-type:disc">La revolución B2P: ya no se trata de B2B o B2C, todo se ha transformado en B2P (Business to people); las líneas entre lo personal y lo comercial sin difusas. Más que nunca, la gente compra a personas que le caen bien, a las que respetan y en las que confían. Vimos este enfoque con nuestros embudos en la Fase 1 para obetner resultados B2C.</li></ul><h3 id="b5c680a3-6e33-4fbb-b8f3-d04299168535" class="block-color-yellow">1D vs 3D</h3><ul id="3f76e369-5c3b-4f9c-95d2-dfb6202fbd9a" class="bulleted-list"><li style="list-style-type:disc">1D: Los métodos de captación 1D se están deteriorando (llamadas frías, correo fríos), que no están acompañados de una cara visible.</li></ul><ul id="42f01c50-2b46-4758-b4b6-af58ad1ee9f9" class="bulleted-list"><li style="list-style-type:disc">3D: Los métodos 3D utilizan el Embudo de Perfil en las redes sociales para establecer relaciones y autoridad. Es altamente escalable, tenemos varios puntos de contacto con los clientes potenciales, en diferentes formas, durante el viaje de ventas para cerrarles.</li></ul><figure id="4ef66810-8038-4e53-8bd4-381829a7df40" class="image"><a href="Proceso%20de%20adquisicio%CC%81n%2010e4bc6e7c274661a01d9128a0d454fa/Captura_de_pantalla_2024-03-29_a_la(s)_6.36.49_p._m..png"><img style="width:346px" src="Proceso%20de%20adquisicio%CC%81n%2010e4bc6e7c274661a01d9128a0d454fa/Captura_de_pantalla_2024-03-29_a_la(s)_6.36.49_p._m..png"/></a></figure><h2 id="1da39c59-58b0-45eb-81a9-c069b610a5a1" class="block-color-pink">Método orgánico</h2><h3 id="37fee189-1aba-440e-b815-19bd6c5391fa" class="block-color-yellow">Empezamos con:</h3><ul id="24e934f3-2dee-4365-8509-d8e128b5122f" class="bulleted-list"><li style="list-style-type:disc"><strong>Eliminación de la complejidad:</strong> al principio, es mejor eliminar tantas variables como sea posible (split-testing, ángulos, etc.) y mantener las cosas sencillas</li></ul><ul id="3b42357b-93a2-4c73-abbc-a2e1503bfcd5" class="bulleted-list"><li style="list-style-type:disc"><strong>Centrarse en las variables principales:</strong> y nos permite probar las variables principales de forma gratuita antes de seguir adelante<ul id="6a2494f5-cd76-4088-af2c-5ff679095455" class="bulleted-list"><li style="list-style-type:circle">Nicho de E-commerce</li></ul><ul id="f335f756-50c7-4724-bf06-0c0803d29c57" class="bulleted-list"><li style="list-style-type:circle">Appointment Setting y oferta</li></ul></li></ul><h3 id="b0e0017a-ab73-4ff5-a358-78c3e0259c84" class="block-color-yellow">Breve introducción</h3><ul id="41e0189c-1b4d-47e7-80f9-afc957b0eea0" class="bulleted-list"><li style="list-style-type:disc">Metodos orgánicos:<ul id="846ecf6e-1bcf-4465-b5e1-179ab53dbb21" class="bulleted-list"><li style="list-style-type:circle">Elegimos tus plataformas de redes sociales después de que presente las dos rutas diferentes</li></ul><ul id="07ccd89f-292d-47fb-aa8b-04e3457d7d61" class="bulleted-list"><li style="list-style-type:circle">Publicamos contenido diseñado para tu nicho para saber que sabes de lo que hablas, con mi Proceso de Contenido para que puedas hacer esto sin invertir mucho tiempo</li></ul><ul id="a5005ac7-0032-4097-bdf5-ba7ac3edb66f" class="bulleted-list"><li style="list-style-type:circle">Una vez que configuremos nuestros perfiles, encontramos prospectos calificado usando el Proceso de Captación.</li></ul><ul id="8a659f73-8498-4829-8031-4a6a50cef4a5" class="bulleted-list"><li style="list-style-type:circle">Entonces fijamos una “Llamada de Demo” utilizando el Appointment Setting. A medida que les enviamos mensajes, ellos también interactúan con tu perfil y contenido, por lo que nuestro enfoque tiene un efecto instantáneo y a largo plazo.</li></ul><figure id="d3bdb912-fd54-400f-bf51-cf1f8002a470" class="image"><a href="Proceso%20de%20adquisicio%CC%81n%2010e4bc6e7c274661a01d9128a0d454fa/Captura_de_pantalla_2024-03-29_a_la(s)_8.05.06_p._m..png"><img style="width:708px" src="Proceso%20de%20adquisicio%CC%81n%2010e4bc6e7c274661a01d9128a0d454fa/Captura_de_pantalla_2024-03-29_a_la(s)_8.05.06_p._m..png"/></a></figure></li></ul><h3 id="2e39e863-20f7-4159-8a33-8381c3e25c2a" class="block-color-yellow">4 formas de conseguir clientes/consumidores</h3><ul id="3678dac0-363b-4315-b439-909c6d061fda" class="bulleted-list"><li style="list-style-type:disc"><strong>Prospecting/prospección:</strong> contactar directamente con los clientes potenciales.</li></ul><ul id="7292cfb0-f5cb-49b4-a109-5d2dde230719" class="bulleted-list"><li style="list-style-type:disc"><strong>Anuncios:</strong> publicar anuncios y conducir a los clientes potenciales a través de un embudo</li></ul><ul id="da1a1578-a9ee-4937-8aa3-fc786d6ca918" class="bulleted-list"><li style="list-style-type:disc"><strong>Referencias:</strong> la base de clientes actuales que te recomiendan a otros</li></ul><ul id="f2edc266-39be-4edf-9a4b-db4262ab5ab4" class="bulleted-list"><li style="list-style-type:disc"><strong>Contenido:</strong> personas que interactúan a tráves de tu contenido y son conducidas a tráves de un embudo</li></ul><figure id="1413e697-d8ea-45ab-863c-6102c291c7ba" class="image"><a href="Proceso%20de%20adquisicio%CC%81n%2010e4bc6e7c274661a01d9128a0d454fa/Captura_de_pantalla_2024-03-29_a_la(s)_6.54.22_p._m..png"><img style="width:708px" src="Proceso%20de%20adquisicio%CC%81n%2010e4bc6e7c274661a01d9128a0d454fa/Captura_de_pantalla_2024-03-29_a_la(s)_6.54.22_p._m..png"/></a></figure><h3 id="cd8f9e8c-5901-418c-9680-5ff6273a14cb" class="block-color-yellow">Marca sobre respuesta directa</h3><figure id="b2209806-c60a-4845-88ce-94c3a68fb076" class="image"><a href="Proceso%20de%20adquisicio%CC%81n%2010e4bc6e7c274661a01d9128a0d454fa/Captura_de_pantalla_2024-03-29_a_la(s)_6.56.05_p._m..png"><img style="width:708px" src="Proceso%20de%20adquisicio%CC%81n%2010e4bc6e7c274661a01d9128a0d454fa/Captura_de_pantalla_2024-03-29_a_la(s)_6.56.05_p._m..png"/></a></figure><figure id="de9b41c2-a51b-4b88-ab55-998b2906e7ca" class="image"><a href="Proceso%20de%20adquisicio%CC%81n%2010e4bc6e7c274661a01d9128a0d454fa/Captura_de_pantalla_2024-03-29_a_la(s)_6.59.28_p._m..png"><img style="width:940px" src="Proceso%20de%20adquisicio%CC%81n%2010e4bc6e7c274661a01d9128a0d454fa/Captura_de_pantalla_2024-03-29_a_la(s)_6.59.28_p._m..png"/></a></figure><h2 id="c03c9806-8a8b-4af4-ba77-c9ea7dbb669b" class="block-color-pink">Explicación del concepto del embudo de perfiles (o embudo orgánico)</h2><h3 id="8453097c-eadb-4a61-961f-257434f05ebf" class="block-color-yellow">Tres tipos de plataformas</h3><figure id="2a67f766-0e36-4458-ad52-4cb419de789e" class="image"><a href="Proceso%20de%20adquisicio%CC%81n%2010e4bc6e7c274661a01d9128a0d454fa/Captura_de_pantalla_2024-03-29_a_la(s)_7.02.25_p._m..png"><img style="width:834px" src="Proceso%20de%20adquisicio%CC%81n%2010e4bc6e7c274661a01d9128a0d454fa/Captura_de_pantalla_2024-03-29_a_la(s)_7.02.25_p._m..png"/></a></figure><h3 id="62613c87-8e8a-4470-91c1-6d2e9cd5756d" class="block-color-yellow">Embudo de perfil explicado</h3><figure id="0c8ab2df-2c6d-4919-9c13-f07d3e710277" class="image"><a href="Proceso%20de%20adquisicio%CC%81n%2010e4bc6e7c274661a01d9128a0d454fa/Captura_de_pantalla_2024-03-29_a_la(s)_7.04.00_p._m..png"><img style="width:708px" src="Proceso%20de%20adquisicio%CC%81n%2010e4bc6e7c274661a01d9128a0d454fa/Captura_de_pantalla_2024-03-29_a_la(s)_7.04.00_p._m..png"/></a></figure><h3 id="6f96edbf-3209-4ae6-83b1-6de8a69d8f95" class="block-color-yellow">Landing de reserva de llamadas de demo</h3><p id="89e39dbf-4540-493c-88bd-46d0a5796952" class="">Ejemplo: <a href="https://youtu.be/vsXhZITjNuQ?si=B5wg-gAf-4onhV-l&amp;t=13288">https://youtu.be/vsXhZITjNuQ?si=B5wg-gAf-4onhV-l&amp;t=13288</a></p><p id="f76c5cad-c9d0-4771-8c44-1dd7919afdd8" class="">Ejemplo del video de la landing: <a href="https://youtu.be/vsXhZITjNuQ?si=NxgydCyK7C8z7Uig&amp;t=13605">https://youtu.be/vsXhZITjNuQ?si=NxgydCyK7C8z7Uig&amp;t=13605</a></p><h3 id="9f510fb1-27ac-427f-8d0d-00c729b2e013" class="block-color-yellow">El algoritmo de contenido</h3><figure id="f6adebee-f3e6-4dd0-96ba-c077c168a925" class="image"><a href="Proceso%20de%20adquisicio%CC%81n%2010e4bc6e7c274661a01d9128a0d454fa/Captura_de_pantalla_2024-03-29_a_la(s)_7.59.26_p._m..png"><img style="width:578px" src="Proceso%20de%20adquisicio%CC%81n%2010e4bc6e7c274661a01d9128a0d454fa/Captura_de_pantalla_2024-03-29_a_la(s)_7.59.26_p._m..png"/></a></figure><p id="d2c0612c-c3e3-4592-a35c-1c859325f1cc" class="">Ejemplo de texto: <a href="https://www.instagram.com/thedankoe">https://www.instagram.com/thedankoe</a></p><figure id="43dc0738-6cb4-47f0-a062-956f72266188" class="image"><a href="Proceso%20de%20adquisicio%CC%81n%2010e4bc6e7c274661a01d9128a0d454fa/Captura_de_pantalla_2024-03-29_a_la(s)_8.04.27_p._m..png"><img style="width:708px" src="Proceso%20de%20adquisicio%CC%81n%2010e4bc6e7c274661a01d9128a0d454fa/Captura_de_pantalla_2024-03-29_a_la(s)_8.04.27_p._m..png"/></a></figure><figure id="888b578a-17c9-4171-8e37-a57600b5b86a" class="image"><a href="Proceso%20de%20adquisicio%CC%81n%2010e4bc6e7c274661a01d9128a0d454fa/Captura_de_pantalla_2024-03-29_a_la(s)_8.05.49_p._m..png"><img style="width:708px" src="Proceso%20de%20adquisicio%CC%81n%2010e4bc6e7c274661a01d9128a0d454fa/Captura_de_pantalla_2024-03-29_a_la(s)_8.05.49_p._m..png"/></a></figure><h3 id="44fada7b-88f6-4a15-bb09-fdce38efcde3" class="">Ejemplos</h3><figure id="59845058-6a86-4ad9-9f9f-173c95d499a6" class="image"><a href="Proceso%20de%20adquisicio%CC%81n%2010e4bc6e7c274661a01d9128a0d454fa/Captura_de_pantalla_2024-03-29_a_la(s)_8.14.12_p._m..png"><img style="width:1192px" src="Proceso%20de%20adquisicio%CC%81n%2010e4bc6e7c274661a01d9128a0d454fa/Captura_de_pantalla_2024-03-29_a_la(s)_8.14.12_p._m..png"/></a></figure><figure id="e6892618-2967-4c09-95c2-fa27dce646cd" class="image"><a href="Proceso%20de%20adquisicio%CC%81n%2010e4bc6e7c274661a01d9128a0d454fa/Captura_de_pantalla_2024-03-29_a_la(s)_8.16.02_p._m..png"><img style="width:708px" src="Proceso%20de%20adquisicio%CC%81n%2010e4bc6e7c274661a01d9128a0d454fa/Captura_de_pantalla_2024-03-29_a_la(s)_8.16.02_p._m..png"/></a></figure><h2 id="61a8f878-15f5-4bb7-a063-85ff9f60ab33" class="block-color-pink">Tipo de contenido que publicamos</h2><h3 id="81b10a30-a069-4959-aadd-577480c8dab1" class="block-color-yellow">El objetivo</h3><ul id="fb8ea564-f6e5-4138-b1f3-ad870592b9a1" class="bulleted-list"><li style="list-style-type:disc">Nuestra prioridad: no queremos explotar nuestro ego nuestra cuenta bancaria y nuestro impacto. No nos dejamos atrapar demasiado por las métricas de vanidad (vistas, likes, comentarios…) sobre todo porque no son un indicador de nuestro éxito.</li></ul><ul id="92017a24-3ba0-46f5-8630-d7c05c54687b" class="bulleted-list"><li style="list-style-type:disc">No hay legisladores de contenido: crear contenido no está reservado a los Gary Vee del mundo. No necesitas un equipo de lujo ni un equipo de edición</li></ul><ul id="0221c4df-5da9-44d8-8f68-a7cded70af3c" class="bulleted-list"><li style="list-style-type:disc">Aprovechemos el efecto de “mera exposición” y la conciencia de estar en primer plano</li></ul><h3 id="07e24422-f5f8-4851-a05d-0c58d0ac0094" class="block-color-yellow">El efecto de mera exposición</h3><ul id="e8e57ee2-14a5-4e65-a66b-003c5687bb5e" class="bulleted-list"><li style="list-style-type:disc"><strong>El efecto de mera exposición:</strong> fenómeno psicológico por el que las personas tienden a desarrollar una preferencia por las cosas por el mero hecho de estar familiarizadas con ellas.</li></ul><ul id="baf91cf8-31b0-467b-b055-a86dd439508f" class="bulleted-list"><li style="list-style-type:disc"><strong>Atracción interpersonal:</strong> En los estudios sobre atracción interpersonal, cuanto más a menudo se ve a una persona, más agradable y simpática resulta.</li></ul><ul id="c9e8e921-d9db-4f34-b6d9-9193d32053e0" class="bulleted-list"><li style="list-style-type:disc"><strong>Repetición:</strong> la repetición simple y constante basta para dejar una huella en la memoria del consumidor y afectar inconscientemente a su comportamiento de consumo. </li></ul><h3 id="b28ce9f1-9121-4e48-897d-c7a0caf21839" class="block-color-yellow">Explicación del efecto contenido</h3><ul id="ca2dbacd-5dd7-43d9-a50f-3418f202bff8" class="bulleted-list"><li style="list-style-type:disc"><strong>El efecto de mera exposición: </strong>vamos a aprovechar el efecto mera exposición para influir en a toma de decisiones. Cuando piensan en una persona que les ayude a crecer su negocio, piensan en ti.</li></ul><ul id="d31e6f2f-14e1-4051-a808-ef5d999a9709" class="bulleted-list"><li style="list-style-type:disc">Conciencia de Primer Plano (Top of mind awareness): al tener este top mind awareness, los primeros mensajes de Appointment Setting y seguimiento aterrizan mejor y convierten más porque se han familiarizado contigo durante los últimos días y semanas.</li></ul><ul id="65173a90-7cee-4857-9cc3-cc022efa2e98" class="bulleted-list"><li style="list-style-type:disc">Autoridad: no tenemos que forzar y casi “rogar” a los clientes potenciales para que acudan a una llamada. Mostrando nuestro valor y experiencia a través del contenido construimos nuestra autoridad (Concepto de Poder vs Fuerza).</li></ul><ul id="f1de79d8-0071-4687-840d-381cabf5e183" class="bulleted-list"><li style="list-style-type:disc">No eres un oportunista pasajero: demuestras que no estás intentando ganar dinero rápido, sino que realmente te importa lo que haces. Los clientes potenciales lo perciben.</li></ul><h3 id="857c7d13-0b39-42ff-a68a-ab2d63a1c851" class="block-color-yellow">La división de contenidos</h3><figure id="7b57bf02-e551-4e02-8bf5-a7332d9b8cc4" class="image"><a href="Proceso%20de%20adquisicio%CC%81n%2010e4bc6e7c274661a01d9128a0d454fa/Captura_de_pantalla_2024-03-30_a_la(s)_9.55.19_p._m..png"><img style="width:1088px" src="Proceso%20de%20adquisicio%CC%81n%2010e4bc6e7c274661a01d9128a0d454fa/Captura_de_pantalla_2024-03-30_a_la(s)_9.55.19_p._m..png"/></a></figure><h3 id="60858b87-1996-4c98-a003-d6182cd1f601" class="block-color-yellow">Conciencia y relación</h3><ul id="206d5e22-0149-40fe-b0a2-b33f02a80958" class="bulleted-list"><li style="list-style-type:disc">Relación: el objetivo principal de este contenido es nutrir a los clientes potenciales a los que nos dirigimos a través de nuestra plataforma de contacto.</li></ul><ul id="6d4743b1-7ce4-452d-bf01-3255db71f4a6" class="bulleted-list"><li style="list-style-type:disc">Conciencia: el segundo objetivo principal es atraer nuevos ojos a nuestro perfil a lo largo del tiempo, especialmente mediante el re-formateo de estos contenidos.</li></ul><h3 id="89f86975-c489-4771-84a3-80a57085e5e5" class="block-color-yellow">Contenido “Acción”</h3><ul id="9551331f-4fc6-4229-b836-c5000c150062" class="bulleted-list"><li style="list-style-type:disc">Objetivo principal: el objetivo principal de este contenido es conseguir que las personas que están viendo nuestro contenido levanten la mano y muestren más interés por lo que hacemos. El 3% de tu audiencia suele estar siempre dispuesta a actuar, pero si no les das la oportunidad de mostrar interés, no lo aprovecharás</li></ul><ul id="2505b0d3-be32-4979-b548-072de87f1561" class="bulleted-list"><li style="list-style-type:disc">Con calma: Con el tiempo, a medida que adquieras más autoridad e influencia, podrás dedicar más tiempo al contenido de captación (70/30 o incluso 60/40 al contenido de concienciación y relación). Al principio, queremos mantenerlo al 80/20 mientras empezamos a construir nuestra audiencia.</li></ul><h3 id="779e7c58-1055-404b-b3a1-d95fe882bba3" class="block-color-yellow">Recurso:</h3><figure id="8d4fe8eb-861b-4358-ad16-77807ffd40fc"><div class="source"><a href="Proceso%20de%20adquisicio%CC%81n%2010e4bc6e7c274661a01d9128a0d454fa/Recursos_de_Growth_Partner.pdf">Recursos de Growth Partner.pdf</a></div></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

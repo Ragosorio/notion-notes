@@ -1,0 +1,684 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Estrategia publicitaria de alta conversión</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3bf7bf5b-ac4c-42ea-9cb2-1718e5997118" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="https://www.notion.so/icons/video-camera_gray.svg"/></div><h1 class="page-title">Estrategia publicitaria de alta conversión</h1><p class="page-description"></p></header><div class="page-body"><figure id="b7cba1a6-07ca-4156-b5bb-edeca7febf43" class="image"><a href="Estrategia%20publicitaria%20de%20alta%20conversio%CC%81n%203bf7bf5bac4c42ea9cb21718e5997118/Captura_de_pantalla_2024-03-28_a_la(s)_12.52.05_p._m..png"><img style="width:708px" src="Estrategia%20publicitaria%20de%20alta%20conversio%CC%81n%203bf7bf5bac4c42ea9cb21718e5997118/Captura_de_pantalla_2024-03-28_a_la(s)_12.52.05_p._m..png"/></a></figure><h2 id="d6b9e004-7206-4314-8957-488a79728c70" class="block-color-blue">Anatomía de un anuncio de alta conversión</h2><figure id="71122aef-316e-464a-aefc-feaf70418477" class="image"><a href="Estrategia%20publicitaria%20de%20alta%20conversio%CC%81n%203bf7bf5bac4c42ea9cb21718e5997118/Captura_de_pantalla_2024-03-28_a_la(s)_1.41.30_p._m..png"><img style="width:708px" src="Estrategia%20publicitaria%20de%20alta%20conversio%CC%81n%203bf7bf5bac4c42ea9cb21718e5997118/Captura_de_pantalla_2024-03-28_a_la(s)_1.41.30_p._m..png"/></a></figure><h3 id="ce698a5d-a665-4c45-9006-77f4cb3eeb79" class=""><mark class="highlight-brown">Lugar en el embudo</mark></h3><figure id="490e97c1-5ad1-4133-8ab0-ee08626d71b5" class="image"><a href="Estrategia%20publicitaria%20de%20alta%20conversio%CC%81n%203bf7bf5bac4c42ea9cb21718e5997118/Captura_de_pantalla_2024-03-28_a_la(s)_1.43.12_p._m..png"><img style="width:708px" src="Estrategia%20publicitaria%20de%20alta%20conversio%CC%81n%203bf7bf5bac4c42ea9cb21718e5997118/Captura_de_pantalla_2024-03-28_a_la(s)_1.43.12_p._m..png"/></a></figure><h3 id="9f5361a6-93e1-4b68-846f-2de11fb1fc69" class="block-color-brown">La gran ventaja del OCAV (Oferta de Contenido de Alto Valor)</h3><ul id="a5c3c1fb-8351-4c04-96dc-af22be106d9c" class="bulleted-list"><li style="list-style-type:disc"><strong>Impulsados por el valor:</strong> como he mencionado anteriormente, la razón por la que estos anuncios que vamos a crear son tan potentes es porque la oferta que presentan es puro valor (aparte del embudo de prueba gratuita)</li></ul><ul id="59196757-e241-449e-bb98-3632ce4aec7f" class="bulleted-list"><li style="list-style-type:disc"><strong>Fomenta la creatividad:</strong> esto nos permite crear contenido realmente nativo al contexto de las plataformas en las que nos anunciamos.</li></ul><ul id="672ab3fe-5078-430a-a6c6-af13bada6462" class="bulleted-list"><li style="list-style-type:disc"><strong>Anuncios ‘Caballos de Troya’:</strong> los mejores anuncios son los que no parecen anuncio. El usuario piensa que estos anuncios están destinados a estar en su feed y se enganchan al instante (no pasan de largo inmediatamente). Antes que se den cuenta, han llegado al final del anuncio y están escuchando nuestra llamada a la acción a nuestro OCAV</li></ul><h3 id="98c7e674-22a9-422a-85ae-3cc341140375" class="block-color-brown">Lo que podemos aprender de TikTok/Reels</h3><ul id="58aeb247-8290-4950-93c8-c5165e56dd3e" class="bulleted-list"><li style="list-style-type:disc"><strong>Formato ganador:</strong>  el formato vertical TikTok/Reels es el ganador actual. Incluso ha influido en la forma que la gente consume contenido, desplazando el mercado hacía formatos más cortos e influyendo en periodos de atención.</li></ul><ul id="1bd37033-d90a-4d8a-97a0-203f526c8dca" class="bulleted-list"><li style="list-style-type:disc"><strong>Extrapolando:</strong> Incluso he extrapolado este formato y lo he aplicado a los anuncios cuadrados para feeds. Los cortes son muy similares, y utilizamos el mismo estilo de edición que en los verticales para las stories y reels</li></ul><ul id="008a5bc1-98cc-461c-ad0a-ed169a25e5d4" class="bulleted-list"><li style="list-style-type:disc"><strong>Inspiración:</strong> Puedes usar las estructuras que te enseñaré de aquí en adelante. Y de ahora en adelante tus mayores fuentes de inspiración serán los mejores creadores: las tendencias que se están utilizando, la forma en la que captan la atención de la gente, cómo estructurar los videos. Tu inspiración NO serán otras marcas (cuyos embudos no existen o son pésimos)</li></ul><h3 id="190cfe4f-bce4-4323-9c7a-acb42fcbe9ff" class="block-color-brown">El Proceso</h3><ul id="219c05ed-0c9f-45fd-b603-48314f5a1ff5" class="bulleted-list"><li style="list-style-type:disc">E-com VSL &amp; Mini-VSL: para estos embudos, vamos a centrarnos en el mismo tipo de contenido publicitario de adquisición. Sobre todo, porque ambos se centran en el vídeo y el tono será casi idéntico</li></ul><ul id="b1ddaaf4-2fdb-4f60-9950-c024ccc6d2c9" class="bulleted-list"><li style="list-style-type:disc">Ángulos: nos referimos al guion/copy como ángulos. Vamos a crear entre 3 a 5 ángulos diferentes, tanto horizontales como verticales. Tu socio no tendrá que crear ángulos diferentes para los dos formatos. Será el mismo ángulo pero con un formato diferente. De hecho podría ser el mismo vídeo, pero para el formato vertical, con los lados cortaddos.</li></ul><ul id="41407ed2-aa4e-4f30-8ff8-8b7664a4ef5a" class="bulleted-list"><li style="list-style-type:disc">Varios ángulos: necesitamos varios ángulos para determinar cuál es el ganador.</li></ul><ul id="a1f7a019-4dc4-48f4-872e-d96876b1c3c6" class="bulleted-list"><li style="list-style-type:disc">El tono: verás en los ejemplos que el tono rara vez varía. Cuando hago un pitch para la VSL de E-commerce o el Mini-VSL, siempre me gusta referirme a la VSL como “clase”, “taller”, “masterclass”</li></ul><h2 id="907ba856-d029-48c5-afbe-32e11dfa9d3e" class="block-color-blue">Creación de anuncios de adquisición de alta conversión</h2><h3 id="5b7dbc12-232c-4f45-94e2-ac4c72720b92" class="block-color-brown">VSL de E-commerce &amp; Mini-VSL</h3><p id="cf6e59cf-2fae-4131-9cf9-715958ac1a9a" class="">Para estos embudos vamos a centrarnos principalmente en el mismo tipo de contenido publicitario de adquisición. Sobre todo porque ambos como hemos hemos visto se centran en el video y el tono será casi idéntico.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="eb9a9abc-1f29-44cc-adf6-12554c8058fa"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">El video en el caso del Mini-VSL puede ir desde 7min (ya que es más corto) y en el caso del VSL de Ecommerce hasta 20min</div></figure><p id="7d32074e-2d62-437c-8ca2-5a8bbbd53f09" class="">
+</p><p id="54452527-917c-4c1f-8533-dfd2fc48a5c1" class="">Vamos a crear entre 3 a 5 ángulos diferentes, tanto horizontales como verticales. Tu socio no tendrá que crear ángulos diferentes para los dos formatos. Será el mismo ángulo pero con un formato diferente. De hecho podría ser el mismo vídeo, pero para el formato vertical, con los lados cortados.</p><p id="b4b1089f-5b2b-4b97-92d0-35327a93da78" class="">
+</p><p id="b1a5ee02-1b78-4a42-a805-41715a971c9d" class="">Necesitamos varios ángulos para determinar cuál es el ganador.</p><p id="18c055f6-96d4-43b0-94bb-158e9721e5fe" class="">
+</p><p id="2263ceee-47db-4025-9ffa-4d14ef57430a" class="">A continuación, algunos ejemplos:</p><p id="521dc7b3-fe0b-4128-a3a9-0204da7d5db7" class="">Dr Planas Cosméticas/AgeFit </p><figure id="04db81a2-b393-4c26-8beb-ba1834a52493" class="image"><a href="Estrategia%20publicitaria%20de%20alta%20conversio%CC%81n%203bf7bf5bac4c42ea9cb21718e5997118/Captura_de_pantalla_2024-03-28_a_la(s)_7.20.52_p._m..png"><img style="width:549px" src="Estrategia%20publicitaria%20de%20alta%20conversio%CC%81n%203bf7bf5bac4c42ea9cb21718e5997118/Captura_de_pantalla_2024-03-28_a_la(s)_7.20.52_p._m..png"/></a></figure><figure id="73e34ad9-cd33-4a11-9cc7-e1ed0071dcce" class="image"><a href="Estrategia%20publicitaria%20de%20alta%20conversio%CC%81n%203bf7bf5bac4c42ea9cb21718e5997118/Captura_de_pantalla_2024-03-28_a_la(s)_7.42.12_p._m..png"><img style="width:458px" src="Estrategia%20publicitaria%20de%20alta%20conversio%CC%81n%203bf7bf5bac4c42ea9cb21718e5997118/Captura_de_pantalla_2024-03-28_a_la(s)_7.42.12_p._m..png"/></a></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="b8878855-90a4-4811-ae96-9e0fd9dc0115"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Aquí existe esta estructura: Buen gancho (¿Qué me dirías si…?), autoridad (Soy el Dr Jorge Planas y llevo…), algo que queremos compartir (compartir contigo mis 3 secretos para…), pequeña barrera (La masterclass única)</div></figure><p id="486b8de1-10e5-4fb7-83d4-58593c71e9ad" class="block-color-yellow">Enlace del ejemplo:  <a href="https://youtu.be/vsXhZITjNuQ?si=nd9q7T1UZpGnNZg5&amp;t=9607">https://youtu.be/vsXhZITjNuQ?si=nd9q7T1UZpGnNZg5&amp;t=9607</a></p><p id="784bdf45-5dc2-4089-88b2-1db7fe5d39ea" class="">
+</p><figure id="b7261118-bc85-4259-8d35-cb9f26d902fe" class="image"><a href="Estrategia%20publicitaria%20de%20alta%20conversio%CC%81n%203bf7bf5bac4c42ea9cb21718e5997118/Captura_de_pantalla_2024-03-28_a_la(s)_7.47.12_p._m..png"><img style="width:453px" src="Estrategia%20publicitaria%20de%20alta%20conversio%CC%81n%203bf7bf5bac4c42ea9cb21718e5997118/Captura_de_pantalla_2024-03-28_a_la(s)_7.47.12_p._m..png"/></a></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="555385e9-e604-447f-b2af-2c406f4ac190"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Gancho (Rejuvenecer tu piel 10-15 años ES POSIBLE), autoridad (Pero sólo si sigues los 3 MÉTODOS que he ido…), algo que queremos compartir</div></figure><p id="caf2b77d-81f6-4a16-86ff-b2d60e2d862f" class="block-color-yellow">Enlace del ejemplo:  <a href="https://youtu.be/vsXhZITjNuQ?si=bUqPi3SE42mG28f9&amp;t=9687">https://youtu.be/vsXhZITjNuQ?si=bUqPi3SE42mG28f9&amp;t=9687</a></p><p id="e500ad9a-ba60-4dbc-b7fe-19745040b1f2" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="213a3cd0-61e7-4d1f-98e5-2afe75c527c4"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">En ambos videos la llamada a la acción es la misma. “Haz click en este vídeo y los compartiré contigo”</div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="19f43a4e-4b23-4cb5-a264-5b5066fb1e76"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Es mejor cuando el anuncio es orgánico (No Tan Producido como kanye en el super bowl) </div></figure><p id="dd99319d-4ce1-434f-89eb-2a8194f55066" class="block-color-yellow">Mas ejemplos de ángulos:  <a href="https://youtu.be/vsXhZITjNuQ?si=TPXretEJB_OYXz_j&amp;t=9783">https://youtu.be/vsXhZITjNuQ?si=TPXretEJB_OYXz_j&amp;t=9783</a></p><p id="662dd0ee-79c7-4c4c-a80f-94edb3de5d75" class="">
+</p><p id="3b38e770-7688-429e-b80f-2d018561b458" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
